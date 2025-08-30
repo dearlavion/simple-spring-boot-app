@@ -4,4 +4,5 @@ out/
 
 # IntelliJ IDEA project files
 /.idea/
+.idea/workspace.xml
 /*.iml

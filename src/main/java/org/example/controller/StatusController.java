@@ -13,7 +13,7 @@ public class StatusController {
 
     @GetMapping
     public String home() {
-
+        System.out.println("^_^ Hello World Version " + VERSION);
         return "Hello World Version " + VERSION;
     }
 
