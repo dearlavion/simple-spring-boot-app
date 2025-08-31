@@ -3,6 +3,12 @@ component: build
 timeoutInSeconds: 6000
 runAs: root
 shell: bash
+failImmediatelyOnError: true
+env:
+  variables:
+    TARGET_JAR: myapp-${OCI_BUILD_RUN_ID: -7}.jar
+  exportedVariables:
+    - TARGET_JAR
 
 steps:
   - type: Command
@@ -23,13 +29,18 @@ steps:
       echo "========== Running mvn clean package =========="
       mvn clean package
 
-      echo "========== Checking contents of target/ =========="
+      echo "========== Checking contents of target =========="
       ls -l target/
 
       echo "========== Renaming target/ =========="
-      cp target/simple-spring-boot-app-1.0-SNAPSHOT.jar target/baishWebServer.jar
+      cp target/simple-spring-boot-app-1.0-SNAPSHOT.jar target/${TARGET_JAR}
+      echo "Renamed to ${TARGET_JAR}"
+
+      echo "========== Checking contents of target after rename =========="
+      pwd
+      ls -l target/
 
 outputArtifacts:
   - name: baishWebServer
     type: BINARY
-    location: target/baishWebServer.jar
+    location: ${OCI_PRIMARY_SOURCE_DIR}/target/${TARGET_JAR}
