@@ -8,15 +8,14 @@ steps:
   - type: Command
     name: Install Java 11
     command: |
-      echo "========== Installing OpenJDK 11 =========="
-      apt-get update
-      apt-get install -y openjdk-11-jdk
+      echo "========== Installing OpenJDK 11 with yum =========="
+      yum install -y java-11-openjdk-devel
 
   - type: Command
     name: Build with Maven
     command: |
       echo "========== Setting up Java 11 environment =========="
-      export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+      export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
       export PATH=$JAVA_HOME/bin:$PATH
       echo "JAVA_HOME is $JAVA_HOME"
       java -version
