@@ -32,4 +32,4 @@ steps:
 outputArtifacts:
   - name: baishWebServer
     type: BINARY
-    location: target/*.jar
+    location: target/baishWebServer.jar
