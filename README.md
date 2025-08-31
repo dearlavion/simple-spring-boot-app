@@ -8,11 +8,8 @@ OCI SSH Auth Token
 2. convert to PEM
  >  ssh-keygen -f mysshkey.pub -e -m pkcs8
 
-Example output
+will generate key copy and paste it
 
->-----BEGIN PUBLIC KEY-----
-Something here
------END PUBLIC KEY-----
 
 3. Copy it to your profile > API key to register the fingerprint token
 
@@ -48,7 +45,7 @@ Clone by Mirror
 1. Add token to your github
 >https://github.com/settings/tokens/new
 
-Enable all scope for now, will generate some random fingerprint
+Enable all scope for now, will generate some random fingerprint key
 >rwfwgwefw
 
 Add it as secret to OCI VAult
