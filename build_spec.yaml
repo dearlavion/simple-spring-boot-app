@@ -4,31 +4,18 @@ timeoutInSeconds: 6000
 runAs: root
 shell: bash
 
-env:
-    variables:
-      JAVA_HOME: /usr/lib/jvm/java-17-openjdk
-    exportedVariables:
-      
-
 steps:
   - type: Command
     name: Install Java 11
     command: |
-      echo "========== Updating package list =========="
-      apt-get update
-
       echo "========== Installing OpenJDK 11 =========="
+      apt-get update
       apt-get install -y openjdk-11-jdk
 
-      echo "========== Setting JAVA_HOME and checking Java version =========="
-      export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-      export PATH=$JAVA_HOME/bin:$PATH
-      echo "JAVA_HOME is set to $JAVA_HOME"
-      java -version
   - type: Command
     name: Build with Maven
     command: |
-      echo "========== Preparing to build with Maven =========="
+      echo "========== Setting up Java 11 environment =========="
       export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
       export PATH=$JAVA_HOME/bin:$PATH
       echo "JAVA_HOME is $JAVA_HOME"
@@ -39,8 +26,6 @@ steps:
 
       echo "========== Checking contents of target/ =========="
       ls -l target/
-
-      echo "========== Build complete =========="
 
 outputArtifacts:
   - name: baishWebServer
