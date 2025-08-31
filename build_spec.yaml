@@ -33,7 +33,7 @@ steps:
       ls -l target/
 
       echo "========== Renaming target/ =========="
-      cp -- target/simple-spring-boot-app-1.0-SNAPSHOT.jar target/${TARGET_JAR}
+      cp -- "target/simple-spring-boot-app-1.0-SNAPSHOT.jar" "target/${TARGET_JAR}"
       echo "Renamed to ${TARGET_JAR}"
 
       echo "========== Checking contents of target after rename =========="
