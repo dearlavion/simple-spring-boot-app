@@ -37,6 +37,9 @@ steps:
       echo "========== Running mvn clean package =========="
       mvn clean package
 
+      echo "========== Checking contents of target/ =========="
+      ls -l target/
+
       echo "========== Build complete =========="
 
 outputArtifacts:
