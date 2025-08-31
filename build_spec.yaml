@@ -6,7 +6,7 @@ shell: bash
 failImmediatelyOnError: true
 env:
   variables:
-    TARGET_JAR: myapp-${OCI_BUILD_RUN_ID: -7}.jar
+    TARGET_JAR: "myapp-${OCI_BUILD_RUN_ID: -7}.jar"
   exportedVariables:
     - TARGET_JAR
 
