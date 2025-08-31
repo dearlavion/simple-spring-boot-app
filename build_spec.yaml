@@ -1,0 +1,22 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6000
+runAs: root
+shell: bash
+
+env:
+    variables:
+      JAVA_HOME: "javahome"
+    exportedVariables:
+      
+
+steps:
+  - type: Command
+    name: Compile and Package
+    command: |
+      mvn clean package
+
+outputArtifacts:
+  - name: spring-boot-app-jar
+    type: BINARY
+    location: target/*.jar
