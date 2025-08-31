@@ -26,6 +26,9 @@ steps:
       echo "========== Checking contents of target/ =========="
       ls -l target/
 
+      echo "========== Renaming target/ =========="
+      cp target/simple-spring-boot-app-1.0-SNAPSHOT.jar target/baishWebServer.jar
+
 outputArtifacts:
   - name: baishWebServer
     type: BINARY
