@@ -18,7 +18,9 @@ steps:
     command: |
       echo "========== Installing OpenJDK 11 with yum =========="
       echo "App Name: ${APP_NAME}"
-      echo "App Name: ${APP_VERSION}"
+      echo "App Version: ${APP_VERSION}"
+      echo "App Name Var: ${APP_NAME_VAR}"
+      echo "App Version Var: ${APP_VERSION_VAR}"
       echo "Env: ${ENVIRONMENT}"
       echo "Jar Name: ${TARGET_JAR}"
 
