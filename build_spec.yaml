@@ -6,6 +6,8 @@ shell: bash
 failImmediatelyOnError: true
 env:
   variables:
+    APP_NAME: "${APP_NAME}"
+    APP_VERSION: "${APP_VERSION}"
     TARGET_JAR: "${APP_NAME}-${APP_VERSION}.jar"
   exportedVariables:
     - TARGET_JAR
