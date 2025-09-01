@@ -14,7 +14,7 @@ steps:
     command: |
       set +u
       TARGET_JAR="${APP_NAME}-${APP_VERSION}.jar"
-      echo "TARGET_JAR=$TARGET_JAR" >> $OCI_EXPORT_VARIABLES_FILE
+      echo "TARGET_JAR=$TARGET_JAR" >> "$OCI_EXPORT_VARIABLES_FILE"
       echo "Set and exported TARGET_JAR as: $TARGET_JAR"
   
   - type: Command
