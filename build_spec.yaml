@@ -6,11 +6,19 @@ shell: bash
 failImmediatelyOnError: true
 env:
   variables:
-    TARGET_JAR: "myapp-${OCI_BUILD_RUN_ID: -7}.jar"
+    TARGET_JAR: "${APP_NAME}-${APP_VERSION}.jar"
   exportedVariables:
     - TARGET_JAR
 
 steps:
+  - type: Command
+    name: Environment parameters
+    command: |
+      echo "========== Installing OpenJDK 11 with yum =========="
+      echo "App Name: ${APP_NAME}"
+      echo "Env: ${ENVIRONMENT}"
+      echo "Jar Name: ${TARGET_JAR}"
+
   - type: Command
     name: Install Java 11
     command: |
